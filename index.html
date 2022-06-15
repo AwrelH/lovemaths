@@ -26,17 +26,17 @@
 
     <div class="game-area">
       <div class="controls-area">
-        <button class="btn btn--big btn--green">
-          <i class="fa-regular fa-circle-plus"></i>
+        <button data-type="addition" class="btn btn--big btn--green">
+          <i class="fas fa-plus"></i>
         </button>
-        <button class="btn btn--big btn--blue">
-          <i class="fa-regular fa-circle-minus"></i>
+        <button data-type="subtract"  class="btn btn--big btn--blue">
+          <i class="fas fa-minus"></i>
         </button>
-        <button class="btn btn--big btn--yellow">
-          <i class="fa-regular fa-circle-xmark"></i>
+        <button data-type="multiply"  class="btn btn--big btn--orange">
+          <i class="fas fa-times"></i>
         </button>
-        <button class="btn btn--big btn--red">
-          <i class="fa-regular fa-circle fa-divide"></i>
+        <button data-type="division"  class="btn btn--big btn--red">
+          <i class="fas fa-divide"></i>
         </button>
       </div>
       <div class="question-area">
@@ -44,15 +44,17 @@
             <span id="operator">x</span>
             <span class="operand2">0</span>
             <span>=</span>
-        <p class="answer-message">Enter Answer:</p>
+       
+            <p class="answer-message">Enter Answer:</p>
+            <input type="number" id="answer-box">
+      
       </div>
-      <input type="number" id="answer-box">
-      <button class="btn btn--gray">Submit answer</button>
+      <button data-type="submit"  class="btn btn--gray">Submit Answer</button>
     </div>
 
     <div class="score-area">
-      <p class="scores">Correct answers <span class="score">0</span></p>
-      <p class="scores">Incorrect answers <span class="incorrect">0</span></p>
+      <p class="scores">Correct answers <span id="score">0</span></p>
+      <p class="scores">Incorrect answers <span id="incorrect">0</span></p>
     </div>
 
     <script src="assets/js/script.js"></script>
