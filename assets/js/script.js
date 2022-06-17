@@ -32,6 +32,8 @@ function runGame(gameType) {
     //creates two random numbers 1-25
     let num1 = Math.floor(Math.random() * 25) + 1;
     let num2 = Math.floor(Math.random() * 25) + 1;
+    let num3 = Math.floor(Math.random() * 12) + 1;
+    let num4 = Math.floor(Math.random() * 12) + 1;
 
     if (gameType === 'addition') {
         displayAdditionQuestion(num1, num2);
@@ -40,7 +42,7 @@ function runGame(gameType) {
     }  else if (gameType === 'subtract') {
         displaySubtractQuestion(num1, num2);
     }  else if (gameType === 'division') {
-        displayDivisionQuestion(num1, num2);
+        displayDivisionQuestion(num3, num4);
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type ${gameType}. Aborting!`;
@@ -80,8 +82,6 @@ function calculateCorrectAnswer() {
     } else if (operator === '-') {
         return [operand1 - operand2, 'subtract'];
     }  else if (operator === '/') {
-
-
         return [operand1 / operand2, 'division'];
     } else {
         alert(`Unimplemented operator ${operator}`);
@@ -89,7 +89,7 @@ function calculateCorrectAnswer() {
     }
 }
 /**
- * 
+ * Increment of score when answering right
  * 
  */
 function incrementScore() {
@@ -98,7 +98,7 @@ function incrementScore() {
 
 }
 /**
- * 
+ * Increment of wronganswer when not answering right
  * 
  */
 function incrementWrongAnswer() {
@@ -106,6 +106,10 @@ function incrementWrongAnswer() {
     document.getElementById('incorrect').innerText = ++oldScore;
 
 }
+/*
+* Managing the operands to calculate correctly and using right operator
+*
+* */
 
 function displayAdditionQuestion(operand1, operand2) {
     document.getElementById('operand1').textContent = operand1;
@@ -126,7 +130,7 @@ function displayMultiplyQuestion(operand1, operand2) {
 }
 
 function displayDivisionQuestion(operand1, operand2) {
-    document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 :  operand2;
-    document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 :  operand1;
+    document.getElementById('operand1').textContent = (operand1 * operand2) ;
+    document.getElementById('operand2').textContent = operand2;
     document.getElementById('operator').textContent = '/';
 }
